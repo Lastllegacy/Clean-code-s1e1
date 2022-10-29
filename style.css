@@ -18,7 +18,7 @@ body {
 }
 
 .matrix-image 
-  .more-inf {
+  .matrix-image__more-inf {
   font-family: fantasy, cursive;
 }
 
@@ -40,7 +40,7 @@ body {
   flex-grow: 1;
 }
 
-.task-row-wrapper {
+.main-element__add-task-input {
   display: flex;
 }
 
