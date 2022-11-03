@@ -32,19 +32,25 @@ const  createNewTaskElement=function(taskString){
     const  deleteButton=document.createElement("button");//delete button
     const  deleteButtonImg=document.createElement("img");//delete button image
 
+    listItem.className = "todo-task";
+
     label.innerText=taskString;
-    label.className="task";
+    label.className="task__label";
 
     //Each elements, needs appending
     checkBox.type="checkbox";
+    checkBox.className = "input__checkbox"
+
     editInput.type="text";
-    editInput.className="task";
+    editInput.className="task__input";
 
     editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
-    editButton.className="edit";
+    editButton.className="btn btn__edit";
 
-    deleteButton.className="delete";
+    deleteButton.className="btn btn__delete";
+
     deleteButtonImg.src="./remove.svg";
+    deleteButtonImg.className="img-remove"
     deleteButton.appendChild(deleteButtonImg);
 
 
@@ -82,9 +88,9 @@ const  editTask=function(){
 
     const  listItem=this.parentNode;
 
-    const  editInput=listItem.querySelector("input[type=text]");
-    const  label=listItem.querySelector("label");
-    const  editBtn=listItem.querySelector(".edit");
+    const  editInput=listItem.querySelector(".task__input");
+    const  label=listItem.querySelector(".task__label");
+    const  editBtn=listItem.querySelector(".btn__edit");
     const  containsClass=listItem.classList.contains("edit-mode");
     //If class of the parent is .editmode
     if(containsClass){
@@ -155,9 +161,9 @@ addButton.addEventListener("click",ajaxRequest);
 const  bindTaskEvents=function(taskListItem,checkBoxEventHandler){
     console.log("bind list item events");
 //select ListItems children
-    const  checkBox=taskListItem.querySelector("input[type=checkbox]");
-    const  editButton=taskListItem.querySelector("button.edit");
-    const  deleteButton=taskListItem.querySelector("button.delete");
+    const  checkBox=taskListItem.querySelector(".input__checkbox");
+    const  editButton=taskListItem.querySelector(".btn__edit");
+    const  deleteButton=taskListItem.querySelector(".btn__delete");
 
 
     //Bind editTask to edit button.
